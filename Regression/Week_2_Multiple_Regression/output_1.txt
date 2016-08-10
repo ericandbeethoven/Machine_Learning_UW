@@ -1,0 +1,53 @@
+Model 1:
+Features: 'sqft_living', 'bedrooms', 'bathrooms', 'lat', 'long'
+Output: 'price'
+Weights:
+	w_0: -69075726.7926
+	w_1: 312.2586
+	w_2: -59586.5332
+	w_3: 15706.7421
+	w_4: 658619.2639
+	w_5: -309374.3513
+
+Model 2:
+Features: 'sqft_living', 'bedrooms', 'bathrooms', 'lat', 'long', 'bed_bath_rooms'
+Output: 'price'
+Weights:
+	w_0: -66867968.8711
+	w_1: 306.6101
+	w_2: -113446.3681
+	w_3: -71461.3083
+	w_4: 654844.6295
+	w_5: -294298.9691
+	w_6: 25579.6520
+
+Model 3:
+Features: 'sqft_living', 'bedrooms', 'bathrooms', 'lat','long', 'bed_bath_rooms', 'bedrooms_squared', 'log_sqft_living', 'lat_plus_long'
+Output: 'price'
+Weights:
+	w_0: -62036084.9861
+	w_1: 529.4228
+	w_2: 34514.2296
+	w_3: 67060.7813
+	w_4: 534085.6109
+	w_5: -406750.7109
+	w_6: -8570.5044
+	w_7: -6788.5867
+	w_8: -561831.4841
+	w_9: 127334.9000
+
+               TRAINING            TESTING   
+Model 1        9.67880e+14        2.25500e+14
+Model 2        9.58420e+14        2.23377e+14
+Model 3        9.03436e+14        2.59236e+14
+
+Quiz Questions:
+1. The mean values of new variables are:
+	bedrooms_squared: 12.45
+	bed_bath_rooms:   7.50
+	log_sqft_living:  7.55
+	lat_plus_long:    -74.65
+2. The sign for the weight for 'bathrooms' in Model 1 is +.
+3. The sign for the weight for 'bathrooms' in Model 2 is -.
+4. Model 3 has the lowest RSS on TRAINING data.
+5. Model 2 has the lowest RSS on TESTING data.

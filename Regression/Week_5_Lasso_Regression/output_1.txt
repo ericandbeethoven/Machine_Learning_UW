@@ -1,0 +1,115 @@
+Part 1: Learn LASSO regression using an L1 penalty of 5e2 on entire dataset.
+Model 1:
+Lambda: 5.000000e+02
+Chosen features: ['sqft_living', 'view', 'grade']
+Weights:
+	w_0: -2.181362e+05
+	w_4: 1.3443931396e+02
+	w_11: 2.4750004586e+04
+	w_13: 6.1749103091e+04
+
+Part 2: Explore multiple values of L1 penalty using a validation set
+L1_penalty            RSS on validation set
+1.000000e+01          3.98213327e+14
+3.162278e+01          3.99041900e+14
+1.000000e+02          4.29791604e+14
+3.162278e+02          4.63739831e+14
+1.000000e+03          6.45898734e+14
+3.162278e+03          1.22250686e+15
+1.000000e+04          1.22250686e+15
+3.162278e+04          1.22250686e+15
+1.000000e+05          1.22250686e+15
+3.162278e+05          1.22250686e+15
+1.000000e+06          1.22250686e+15
+3.162278e+06          1.22250686e+15
+1.000000e+07          1.22250686e+15
+
+Chosen L1 penalty is 1.000000e+01
+
+Model 1:
+Lambda: 1.000000e+01
+Chosen features: ['bedrooms', 'bedrooms_square', 'bathrooms', 'sqft_living', 'sqft_living_sqrt', 'sqft_lot', 'sqft_lot_sqrt', 'floors_square', 'waterfront', 'view', 'condition', 'grade', 'yr_built', 'yr_renovated']
+RSS on TEST data: 9.84674026e+13
+Weights:
+	w_0: 6.630156e+06
+	w_1: -1.6144562757e+04
+	w_2: 3.7324538435e+02
+	w_3: 5.0841243340e+04
+	w_4: 6.1785355950e+02
+	w_5: -4.4411354867e+04
+	w_6: 7.8562306483e-01
+	w_7: -7.0119476537e+02
+	w_9: 5.0142004570e+03
+	w_10: 6.1948875249e+05
+	w_11: 3.8041855652e+04
+	w_12: 2.4998771838e+04
+	w_13: 1.2871623462e+05
+	w_16: -3.2938311799e+03
+	w_17: 1.0057320864e+01
+
+Part 3: Limit to 7 features
+L1_penalty            # of non-zero features
+1.000000e+01                  15
+1.438450e+01                  15
+2.069138e+01                  15
+2.976351e+01                  15
+4.281332e+01                  13
+6.158482e+01                  12
+8.858668e+01                  11
+1.274275e+02                  10
+1.832981e+02                   7
+2.636651e+02                   6
+3.792690e+02                   6
+5.455595e+02                   6
+7.847600e+02                   5
+1.128838e+03                   3
+1.623777e+03                   3
+2.335721e+03                   2
+3.359818e+03                   1
+4.832930e+03                   1
+6.951928e+03                   1
+1.000000e+04                   1
+
+L1_penalty            # of non-zero features          RSS on validation set
+1.274275e+02                  10                       4.35374677e+14
+1.345979e+02                  10                       4.37009229e+14
+1.417683e+02                   8                       4.38236128e+14
+1.489387e+02                   8                       4.39158938e+14
+1.561091e+02                   7                       4.40037365e+14
+1.632795e+02                   7                       4.40777490e+14
+1.704499e+02                   7                       4.41566698e+14
+1.776203e+02                   7                       4.42406413e+14
+1.847907e+02                   7                       4.43296717e+14
+1.919611e+02                   7                       4.44239781e+14
+1.991315e+02                   7                       4.45230740e+14
+2.063019e+02                   6                       4.46268897e+14
+2.134723e+02                   6                       4.47112919e+14
+2.206427e+02                   6                       4.47998188e+14
+2.278131e+02                   6                       4.48924707e+14
+2.349835e+02                   6                       4.49892476e+14
+2.421539e+02                   6                       4.50901499e+14
+2.493243e+02                   6                       4.51952427e+14
+2.564947e+02                   6                       4.53043924e+14
+2.636651e+02                   6                       4.54176670e+14
+
+Chosen L1 penalty is 1.561091e+02
+
+Model 1:
+Lambda: 1.561091e+02
+Chosen features: ['bathrooms', 'sqft_living', 'waterfront', 'view', 'grade', 'yr_built']
+Weights:
+	w_0: 4.422190e+06
+	w_3: 1.0610890284e+04
+	w_4: 1.6338025165e+02
+	w_10: 5.0645168711e+05
+	w_11: 4.1960043555e+04
+	w_13: 1.1625355370e+05
+	w_16: -2.6122348804e+03
+
+Quiz Questions
+1. In part 1, LASSO chooses ['sqft_living', 'view', 'grade'] as non-zero features.
+2. In part 2, L1_penalty=1.0000e+01 gives the lowest RSS on validation set.
+3. In part 2, using the best L1 penalty, there are 15 nonzero weights.
+4. In part 3, L1_penalty_min = 127.4275, L1_penalty_max = 263.6651
+5. In part 3, L1_penalty=1.5611e+02 gives the lowest RSS on validation set, and has sparsity equalsto 7.
+6. In part 3, LASSO chooses ['bathrooms', 'sqft_living', 'waterfront', 'view', 'grade', 'yr_built'] as non-zero features.

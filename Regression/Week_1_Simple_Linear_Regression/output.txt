@@ -1,0 +1,16 @@
+Intercept: -47116.0791
+Slope: 281.9588
+
+Intercept: 109473.1776
+Slope: 127588.9529
+
+1. The predicted price for a house with 2650 sqft is $700074.846
+
+2. The RSS for the simple linear regression using squarefeet to predict prices on TRAINING data is 1.2019e+15
+
+3. The estimated square-feet for a house costing $800000 is 3004.396
+
+4. On test data:
+		RSS of square feet: 2.75402934e+14
+		RSS of bedrooms: 4.93364586e+14
+   Square feet has lower RSS on TEST data

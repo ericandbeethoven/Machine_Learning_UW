@@ -1,0 +1,185 @@
+Part 1: Different Polynomial Orders
+Model 1:
+Features: 'sqft_living'
+Output: 'price'
+Weights:
+	w_0: -4.358074e+04
+	w_1: 2.806236e+02
+
+Model 2:
+Features: 'sqft_living' 2nd order polynomial
+Output: 'price'
+Weights:
+	w_0: 1.992223e+05
+	w_1: 6.799409e+01
+	w_2: 3.858126e-02
+
+Model 3:
+Features: 'sqft_living' 3rd order polynomial
+Output: 'price'
+Weights:
+	w_0: 3.368197e+05
+	w_1: -9.018199e+01
+	w_2: 8.704651e-02
+	w_3: -3.840553e-06
+
+Model 4:
+Features: 'sqft_living' 15th order polynomial
+Output: 'price'
+Weights:
+	w_0: 5.371163e+05
+	w_1: 4.564042e-91
+	w_2: 1.427120e-50
+	w_3: 9.261556e-56
+	w_4: 2.489206e-60
+	w_5: 0.000000e+00
+	w_6: 2.685752e-71
+	w_7: 2.261476e-67
+	w_8: 1.859003e-63
+	w_9: 1.471441e-59
+	w_10: 1.097710e-55
+	w_11: 7.435090e-52
+	w_12: 4.230156e-48
+	w_13: 1.616186e-44
+	w_14: -2.492838e-48
+	w_15: 9.597183e-53
+
+RSS on whole data set:
+Model 1: 1.477276e+15
+Model 2: 1.361080e+15
+Model 3: 1.342841e+15
+Model 4: 2.648217e+15
+
+Part 2: Estimate a 15th degree polynomial on all 4 sets
+Model 1:
+Features: 'sqft_living' 15th order polynomial
+Output: 'price'
+Weights:
+	w_0: 5.390588e+05
+	w_1: 3.057942e-90
+	w_2: 2.212297e-49
+	w_3: 8.636629e-55
+	w_4: 9.956824e-60
+	w_5: 0.000000e+00
+	w_6: 1.103661e-70
+	w_7: 8.377240e-67
+	w_8: 6.234120e-63
+	w_9: 4.491564e-59
+	w_10: 3.069388e-55
+	w_11: 1.917493e-51
+	w_12: 1.013352e-47
+	w_13: 3.621770e-44
+	w_14: -5.635017e-48
+	w_15: 2.186411e-52
+
+Model 2:
+Features: 'sqft_living' 15th order polynomial
+Output: 'price'
+Weights:
+	w_0: 5.057769e+05
+	w_1: 2.680078e-77
+	w_2: -1.283130e-39
+	w_3: -1.648490e-44
+	w_4: -2.243319e-49
+	w_5: -2.088097e-53
+	w_6: 0.000000e+00
+	w_7: 3.628665e-55
+	w_8: 1.498075e-51
+	w_9: 5.739745e-48
+	w_10: 1.951583e-44
+	w_11: 5.378971e-41
+	w_12: 9.380356e-38
+	w_13: -3.624783e-41
+	w_14: 4.639684e-45
+	w_15: -1.964847e-49
+
+Model 3:
+Features: 'sqft_living' 15th order polynomial
+Output: 'price'
+Weights:
+	w_0: 5.308743e+05
+	w_1: 2.837519e-88
+	w_2: 1.172204e-48
+	w_3: 1.578354e-54
+	w_4: 0.000000e+00
+	w_5: 0.000000e+00
+	w_6: 4.278950e-69
+	w_7: 2.680096e-65
+	w_8: 1.639114e-61
+	w_9: 9.664350e-58
+	w_10: 5.380447e-54
+	w_11: 2.725636e-50
+	w_12: 1.162532e-46
+	w_13: 3.337561e-43
+	w_14: -6.762388e-47
+	w_15: 3.431329e-51
+
+Model 4:
+Features: 'sqft_living' 15th order polynomial
+Output: 'price'
+Weights:
+	w_0: 4.948247e+05
+	w_1: 1.370620e-76
+	w_2: -7.349231e-40
+	w_3: -1.260527e-44
+	w_4: 1.165077e-49
+	w_5: 4.176195e-53
+	w_6: 0.000000e+00
+	w_7: 1.270513e-54
+	w_8: 4.877991e-51
+	w_9: 1.735247e-47
+	w_10: 5.469827e-44
+	w_11: 1.395685e-40
+	w_12: 2.250112e-37
+	w_13: -9.438207e-41
+	w_14: 1.315540e-44
+	w_15: -6.090732e-49
+
+RSS on whole data set:
+Model 1: 6.973601e+14
+Model 2: 4.907373e+14
+Model 3: 6.233931e+14
+Model 4: 4.509823e+14
+
+Part 3: Cross Validation to select the best degree
+Model of polynomial degree 1, RSS = 6.29097886e+14
+Model of polynomial degree 2, RSS = 6.23955063e+14
+Model of polynomial degree 3, RSS = 6.25820280e+14
+Model of polynomial degree 4, RSS = 6.29987340e+14
+Model of polynomial degree 5, RSS = 6.28218452e+14
+Model of polynomial degree 6, RSS = 5.66268641e+14
+Model of polynomial degree 7, RSS = 1.07384808e+15
+Model of polynomial degree 8, RSS = 7.08748983e+15
+Model of polynomial degree 9, RSS = 4.53009602e+16
+Model of polynomial degree 10, RSS = 2.47129222e+17
+Model of polynomial degree 11, RSS = 1.17297875e+18
+Model of polynomial degree 12, RSS = 4.97251244e+18
+Model of polynomial degree 13, RSS = 7.61623002e+17
+Model of polynomial degree 14, RSS = 2.29756093e+18
+Model of polynomial degree 15, RSS = 6.95503810e+18
+Chosen degree is 6
+
+Model 1:
+Features: 'sqft_living' 6-th order polynomial
+Output: 'price'
+Weights:
+	w_0: 2.975068e+05
+	w_1: 8.500627e-12
+	w_2: 3.823104e-08
+	w_3: 3.794124e-05
+	w_4: -9.897929e-09
+	w_5: 1.060745e-12
+	w_6: -3.908736e-17
+
+RSS on TEST set:
+Model 1: 1.352251e+14
+
+Quiz Questions:
+1. In part 2, the signs for power_15 in all four models are:
+	Set 1: +
+	Set 2: -
+	Set 3: +
+	Set 4: -
+2. In part 2 the plotted fitted lines does not look the same.
+3. Degree 6 has the lowest RSS on validation data.
+4. The RSS on TEST data of model with degree 6 is 1.352251e+14

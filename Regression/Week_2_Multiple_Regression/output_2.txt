@@ -1,0 +1,21 @@
+Model 1:
+Features: 'sqft_living'
+Output: 'price'
+Weights:
+	w_0: -46999.8872
+	w_1: 281.9121
+
+Model 2:
+Features: 'sqft_living', 'sqft_living15'
+Output: 'price'
+Weights:
+	w_0: -99999.9688
+	w_1: 245.0726
+	w_2: 65.2795
+
+Quiz Questions:
+1. The weight for 'sqft_living' in Model 1 is 281.912119.
+2. The predicted price for the 1st house in the TEST data set for Model 1 is $356134.
+3. The predicted price for the 1st house in the TEST data set for Model 2 is $366651.
+4. The true price is $310000. Model 1 is closer to the true price.
+5. RSS(Model 1) = 2.754e+14. RSS(Model 2) = 2.703e+14. Model 2 has lowest RSS on TEST data.

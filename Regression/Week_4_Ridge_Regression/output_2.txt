@@ -1,0 +1,56 @@
+Testing compute_gradient function. Values below should be the same.
+[ -2.32555120e+10  -5.85644602e+13]
+[-23255512010.0, -58564460199378.0]
+
+Part 1: Train Rigid model using feature 'sqft_living' and L2 penalty 0.0 / 1e11
+Model 1:
+Features: 'sqft_living'
+Output: 'price'
+Lambda: 0.0
+	w_0: -1.631135e-01
+	w_1: 2.630244e+02
+
+Model 2:
+Features: 'sqft_living'
+Output: 'price'
+Lambda: 1e11
+	w_0: 9.767304e+00
+	w_1: 1.245722e+02
+
+Part 2: Multiple Regression using 'sqft_living' and 'sqft_living15'
+Model 1:
+Features: 'sqft_living', 'sqft_living15'
+Output: 'price'
+Lambda: 0.0
+	w_0: -3.574348e-01
+	w_1: 2.430542e+02
+	w_2: 2.241481e+01
+
+Model 2:
+Features: 'sqft_living', 'sqft_living15'
+Output: 'price'
+Lambda: 1e11
+	w_0: 6.742966e+00
+	w_1: 9.148927e+01
+	w_2: 7.843659e+01
+
+Quiz Questions:
+
+1. In part 1, the value of the coefficient with no regulation is 263.0, with high regulation is 124.6.
+
+2. The line with no penalty is steeper.
+
+3. In Part 1, the RSS on TEST data are:
+   RSS_initial : 1.78427329e+15
+   RSS_no_reg : 2.75723632e+14
+   RSS_high_reg : 6.94642101e+14
+
+4. In part 2, the value of the coefficient with no regulation is 243.1, with high regulation is 91.5.
+
+5. In Part 2, the RSS on TEST data are:
+   RSS_initial : 1.78427329e+15
+   RSS_no_reg : 2.74067616e+14
+   RSS_high_reg : 5.00404801e+14
+6. Price of the first house in the test set:  $310000.00
+   Prediction with no regularization model:   $387465.48 (error = 77465.48)
+   Prediction with high regularization model: $270453.53 (error = -39546.47)

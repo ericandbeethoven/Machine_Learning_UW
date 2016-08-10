@@ -1,0 +1,270 @@
+Part 1: Use Rigid Regression
+Model 1:
+Features: 'sqft_living' 15th order polynomial
+Output: 'price'
+Lambda: 1.500000e-05
+Weights:
+	w_0: 2.206644e+05
+	w_1: 1.248733e+02
+	w_2: -4.773760e-02
+	w_3: 3.014462e-05
+	w_4: -2.444199e-09
+	w_5: -1.941537e-13
+	w_6: 8.540857e-18
+	w_7: 1.511421e-21
+	w_8: 8.279791e-26
+	w_9: 6.526031e-31
+	w_10: -3.278950e-34
+	w_11: -3.879623e-38
+	w_12: -2.724376e-42
+	w_13: -1.077908e-46
+	w_14: 3.782427e-51
+	w_15: 1.397903e-54
+
+Part 2: Ridge Regression with small lambda
+Model 1:
+Features: 'sqft_living' 15th order polynomial
+Output: 'price'
+Lambda: 1.000000e-09
+Weights:
+	w_0: 2.388883e+04
+	w_1: 5.446694e+02
+	w_2: -3.554476e-01
+	w_3: 1.224464e-04
+	w_4: -1.171753e-08
+	w_5: -3.905126e-13
+	w_6: -1.390763e-17
+	w_7: 1.478603e-20
+	w_8: 6.874922e-25
+	w_9: -7.572044e-29
+	w_10: -1.040973e-32
+	w_11: -3.718441e-37
+	w_12: 3.399895e-41
+	w_13: 5.565919e-45
+	w_14: 2.537614e-49
+	w_15: -3.351529e-53
+
+Model 2:
+Features: 'sqft_living' 15th order polynomial
+Output: 'price'
+Lambda: 1.000000e-09
+Weights:
+	w_0: -5.561465e+04
+	w_1: 8.593627e+02
+	w_2: -8.181183e-01
+	w_3: 4.288800e-04
+	w_4: -9.127705e-08
+	w_5: -2.696050e-12
+	w_6: 3.739804e-15
+	w_7: -1.427119e-19
+	w_8: -6.307947e-23
+	w_9: -1.445597e-27
+	w_10: 7.443213e-31
+	w_11: 9.258660e-35
+	w_12: 3.280288e-41
+	w_13: -1.295435e-42
+	w_14: -1.387813e-46
+	w_15: 1.665465e-50
+
+Model 3:
+Features: 'sqft_living' 15th order polynomial
+Output: 'price'
+Lambda: 1.000000e-09
+Weights:
+	w_0: 4.709878e+05
+	w_1: -7.553958e+02
+	w_2: 9.755794e-01
+	w_3: -4.589459e-04
+	w_4: 7.779578e-08
+	w_5: 7.150138e-12
+	w_6: -2.886020e-15
+	w_7: -2.136786e-20
+	w_8: 3.380853e-23
+	w_9: 2.191781e-27
+	w_10: -1.970678e-31
+	w_11: -4.159931e-35
+	w_12: -1.801961e-39
+	w_13: 3.190709e-43
+	w_14: 5.084571e-47
+	w_15: -3.933043e-51
+
+Model 4:
+Features: 'sqft_living' 15th order polynomial
+Output: 'price'
+Lambda: 1.000000e-09
+Weights:
+	w_0: -1.456556e+05
+	w_1: 1.119446e+03
+	w_2: -9.837601e-01
+	w_3: 3.387708e-04
+	w_4: 3.603777e-08
+	w_5: -4.378141e-11
+	w_6: 5.771917e-15
+	w_7: 7.667954e-19
+	w_8: -9.492978e-23
+	w_9: -1.960308e-26
+	w_10: -2.108912e-32
+	w_11: 3.310051e-34
+	w_12: 3.477340e-38
+	w_13: -2.430393e-42
+	w_14: -8.795535e-46
+	w_15: 6.445698e-50
+
+Part 3: Ridge Regression with small lambda
+Model 1:
+Features: 'sqft_living' 15th order polynomial
+Output: 'price'
+Lambda: 1.230000e+02
+Weights:
+	w_0: 5.391030e+05
+	w_1: 2.328068e+00
+	w_2: 3.536216e-04
+	w_3: 3.319697e-08
+	w_4: 2.000825e-12
+	w_5: 1.114926e-16
+	w_6: 6.577861e-21
+	w_7: 4.129395e-25
+	w_8: 2.703938e-29
+	w_9: 1.816148e-33
+	w_10: 1.238243e-37
+	w_11: 8.518725e-42
+	w_12: 5.894556e-46
+	w_13: 4.095426e-50
+	w_14: 2.854649e-54
+	w_15: 1.995475e-58
+
+Model 2:
+Features: 'sqft_living' 15th order polynomial
+Output: 'price'
+Lambda: 1.230000e+02
+Weights:
+	w_0: 5.298530e+05
+	w_1: 2.097569e+00
+	w_2: 3.908175e-04
+	w_3: 6.671899e-08
+	w_4: 8.900030e-12
+	w_5: 9.726399e-16
+	w_6: 9.697337e-20
+	w_7: 9.505645e-24
+	w_8: 9.444910e-28
+	w_9: 9.571913e-32
+	w_10: 9.869452e-36
+	w_11: 1.031011e-39
+	w_12: 1.087298e-43
+	w_13: 1.154537e-47
+	w_14: 1.232113e-51
+	w_15: 1.319867e-55
+
+Model 3:
+Features: 'sqft_living' 15th order polynomial
+Output: 'price'
+Lambda: 1.230000e+02
+Weights:
+	w_0: 5.336401e+05
+	w_1: 2.289063e+00
+	w_2: 4.124722e-04
+	w_3: 6.088353e-08
+	w_4: 6.585722e-12
+	w_5: 6.152782e-16
+	w_6: 5.644466e-20
+	w_7: 5.288344e-24
+	w_8: 5.070914e-28
+	w_9: 4.946573e-32
+	w_10: 4.880438e-36
+	w_11: 4.850091e-40
+	w_12: 4.841615e-44
+	w_13: 4.846350e-48
+	w_14: 4.858836e-52
+	w_15: 4.875585e-56
+
+Model 4:
+Features: 'sqft_living' 15th order polynomial
+Output: 'price'
+Lambda: 1.230000e+02
+Weights:
+	w_0: 5.245630e+05
+	w_1: 2.085962e+00
+	w_2: 4.050358e-04
+	w_3: 7.468646e-08
+	w_4: 1.130966e-11
+	w_5: 1.458644e-15
+	w_6: 1.735613e-19
+	w_7: 2.016096e-23
+	w_8: 2.346053e-27
+	w_9: 2.756361e-31
+	w_10: 3.270431e-35
+	w_11: 3.910469e-39
+	w_12: 4.701180e-43
+	w_13: 5.672123e-47
+	w_14: 6.859581e-51
+	w_15: 8.308436e-55
+
+Part 4: Choosing Lambda via cross-validation
+Lambda: 1.00000e-05, avg_RSS: 2.12763135e+14
+Lambda: 3.16228e-05, avg_RSS: 6.15242632e+14
+Lambda: 1.00000e-04, avg_RSS: 7.59154167e+14
+Lambda: 3.16228e-04, avg_RSS: 5.93069271e+14
+Lambda: 1.00000e-03, avg_RSS: 3.78204306e+14
+Lambda: 3.16228e-03, avg_RSS: 2.11296622e+14
+Lambda: 1.00000e-02, avg_RSS: 1.34120014e+14
+Lambda: 3.16228e-02, avg_RSS: 1.20311797e+14
+Lambda: 1.00000e-01, avg_RSS: 1.19994335e+14
+Lambda: 3.16228e-01, avg_RSS: 1.21620172e+14
+Lambda: 1.00000e+00, avg_RSS: 1.31792490e+14
+Lambda: 3.16228e+00, avg_RSS: 1.72594599e+14
+Lambda: 1.00000e+01, avg_RSS: 2.23690827e+14
+Lambda: 3.16228e+01, avg_RSS: 2.46444288e+14
+Lambda: 1.00000e+02, avg_RSS: 2.57399434e+14
+Lambda: 3.16228e+02, avg_RSS: 2.62865879e+14
+Lambda: 1.00000e+03, avg_RSS: 2.64977361e+14
+Lambda: 3.16228e+03, avg_RSS: 2.65692936e+14
+Lambda: 1.00000e+04, avg_RSS: 2.65924369e+14
+Lambda: 3.16228e+04, avg_RSS: 2.65998082e+14
+Lambda: 1.00000e+05, avg_RSS: 2.66021445e+14
+Lambda: 3.16228e+05, avg_RSS: 2.66028838e+14
+Lambda: 1.00000e+06, avg_RSS: 2.66031176e+14
+Lambda: 3.16228e+06, avg_RSS: 2.66031916e+14
+Lambda: 1.00000e+07, avg_RSS: 2.66032150e+14
+Lambda: 3.16228e+07, avg_RSS: 2.66032224e+14
+Lambda: 1.00000e+08, avg_RSS: 2.66032247e+14
+Lambda: 3.16228e+08, avg_RSS: 2.66032255e+14
+Lambda: 1.00000e+09, avg_RSS: 2.66032257e+14
+Chosen lambda is 1.0000e-01
+
+Model 1:
+Features: 'sqft_living' 15th order polynomial
+Output: 'price'
+Lambda: 1.000000e-01
+Weights:
+	w_0: 1.887659e+05
+	w_1: 1.059962e+02
+	w_2: 1.869442e-02
+	w_3: 1.867549e-06
+	w_4: 8.734647e-11
+	w_5: 2.609086e-15
+	w_6: 5.381068e-20
+	w_7: -1.415142e-24
+	w_8: -4.090804e-28
+	w_9: -5.130491e-32
+	w_10: -5.274660e-36
+	w_11: -4.907134e-40
+	w_12: -4.290152e-44
+	w_13: -3.596481e-48
+	w_14: -2.926998e-52
+	w_15: -2.331574e-56
+
+Quiz Questions
+
+1. In Part 1, the learned value for the coefficient of feature power_1 is 1.248733e+02.
+
+2. In Part 2, the coefficients of feature power_1 are 544.6694, 859.3627, -755.3958, 1119.4456.
+   The smallest value is -7.553958e+02.
+   The largest value is 1.119446e+03.
+
+3. In Part 3, the coefficients of feature power_1 are 2.3281, 2.0976, 2.2891, 2.0860.
+   The smallest value is 2.085962e+00.
+   The largest value is 2.328068e+00.
+
+4. In Part 4, the best value for the L2 penalty is 1.0000e-01.
+
+5. In Part 4, the RSS on the TEST data is 1.37525757e+14.
