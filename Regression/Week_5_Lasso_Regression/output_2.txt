@@ -1,0 +1,106 @@
+Step Coordinate Descent test:
+0.425558846691
+0.425558846691
+
+Part 1: Simple model with 2 features
+ro values of features: [1.167295e+10, 2.984132e+13, 4.162329e+10] 
+
+Part 2: Apply Cyclical Coordinate Descent on simple model with 2 features
+Lambda: 1.000000e+07
+Features: 'sqft_living', 'bedrooms'
+Weights:
+intercept      2.162500e+07
+sqft_living    6.315725e+07
+bedrooms       0.000000e+00
+dtype: float64
+RSS: 1.6304924767e+15
+
+Part 3: LASSO Regression with more features
+Features:['bedrooms', 'bathrooms', 'sqft_living', 'sqft_lot', 'floors', 'waterfront', 'view', 'condition', 'grade', 'sqft_above', 'sqft_basement', 'yr_built', 'yr_renovated']
+Output: 'price'
+
+Model 1:
+Lambda: 1.0e+07
+Tolerance: 1.0e+00
+Weights:
+intercept        2.442960e+07
+bedrooms         0.000000e+00
+bathrooms        0.000000e+00
+sqft_living      4.838917e+07
+sqft_lot         0.000000e+00
+floors           0.000000e+00
+waterfront       3.317511e+06
+view             7.329962e+06
+condition        0.000000e+00
+grade            0.000000e+00
+sqft_above       0.000000e+00
+sqft_basement    0.000000e+00
+yr_built         0.000000e+00
+yr_renovated     0.000000e+00
+dtype: float64
+
+Model 2:
+Lambda: 1.0e+08
+Tolerance: 1.0e+00
+Weights:
+intercept        7.111463e+07
+bedrooms         0.000000e+00
+bathrooms        0.000000e+00
+sqft_living      0.000000e+00
+sqft_lot         0.000000e+00
+floors           0.000000e+00
+waterfront       0.000000e+00
+view             0.000000e+00
+condition        0.000000e+00
+grade            0.000000e+00
+sqft_above       0.000000e+00
+sqft_basement    0.000000e+00
+yr_built         0.000000e+00
+yr_renovated     0.000000e+00
+dtype: float64
+
+Model 3:
+Lambda: 1.0e+04
+Tolerance: 5.0e+05
+Weights:
+intercept        7.856474e+07
+bedrooms        -2.209740e+07
+bathrooms        1.279107e+07
+sqft_living      9.380809e+07
+sqft_lot        -2.013173e+06
+floors          -4.219185e+06
+waterfront       6.482843e+06
+view             7.127409e+06
+condition        5.001665e+06
+grade            1.432752e+07
+sqft_above      -1.577096e+07
+sqft_basement   -5.159591e+06
+yr_built        -8.449534e+07
+yr_renovated     2.824439e+06
+dtype: float64
+
+RSS on TEST set:
+L1_penalty            RSS
+1e+07            2.759621e+14
+1e+08            5.371662e+14
+1e+04            2.284600e+14
+
+Quiz Questions
+
+1. In part 1, we have ro_1=2.984132e+13 and ro_2=4.162329e+10.
+   To make w[1] not zero and w[2] zero, we have -l1_penalty/2 <= ro_2 <= l1_penalty/2 and ro_1 > l1_penalty/2.
+   Therefore, l1_penalty is in the range [8.324658e+10, 5.968263e+13].
+
+2. In part 1, to make w[1] and w[2] both zero, we have -l1_penalty/2 <= ro_2 < ro_1 <= l1_penalty/2.
+   Since l1_penalty >= 0, left boundary is 0, we only need to satisfy ro_1 <= l1_penalty/2.
+   Therefore, l1_penalty is in the range [5.968263e+13, Inf].
+
+3. In part 2, RSS of the learned model on the normalized dataset is 1.6304924767e+15.
+
+4. In part 2, 'bedrooms' has weight zero at convergence.
+
+5. In Part 3 Model 1, ['intercept', 'sqft_living', 'waterfront', 'view'] have non-zero weight.
+   In Part 3 Model 2, ['intercept'] have non-zero weight.
+   In Part 3 Model 3, ['intercept', 'bedrooms', 'bathrooms', 'sqft_living', 'sqft_lot', 'floors', 'waterfront', 'view', 'condition', 'grade', 'sqft_above', 'sqft_basement', 'yr_built', 'yr_renovated'] have non-zero weight.
+
+6. In part 3, the model with L1_penalty=1e+04 performs best on TEST data.

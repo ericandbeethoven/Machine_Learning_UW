@@ -15,13 +15,13 @@ def compute_RSS(y_predict, y_true):
 
 
 # Read data from csv file
-dtype_dict = {'bathrooms':float, 'waterfront':int, 'sqft_above':int,
-              'sqft_living15':float, 'grade':int, 'yr_renovated':int,
-              'price':float, 'bedrooms':float, 'zipcode':str,
-              'long':float, 'sqft_lot15':float, 'sqft_living':float,
-              'floors':float, 'condition':int, 'lat':float,
-              'date':str, 'sqft_basement':int, 'yr_built':int,
-              'id':str, 'sqft_lot':int, 'view':int}
+dtype_dict = {'bathrooms': float, 'waterfront': int, 'sqft_above': int,
+              'sqft_living15': float, 'grade': int, 'yr_renovated': int,
+              'price': float, 'bedrooms': float, 'zipcode': str,
+              'long': float, 'sqft_lot15': float, 'sqft_living': float,
+              'floors': float, 'condition': int, 'lat': float,
+              'date': str, 'sqft_basement': int, 'yr_built': int,
+              'id': str, 'sqft_lot': int, 'view': int}
 
 house_data = pd.read_csv('kc_house_data.csv', dtype=dtype_dict)
 house_test_data = pd.read_csv('wk3_kc_house_test_data.csv', dtype=dtype_dict)
