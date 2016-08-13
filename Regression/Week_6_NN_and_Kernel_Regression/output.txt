@@ -1,0 +1,58 @@
+Euclidean distance from the query house (1st house of the test set) to first 10 houses in TRAINING set:
+0 : 6.02747092e-02
+1 : 8.54688115e-02
+2 : 6.14994644e-02
+3 : 5.34027398e-02
+4 : 5.84448406e-02
+5 : 5.98792151e-02
+6 : 5.46314050e-02
+7 : 5.54310832e-02
+8 : 5.23836278e-02
+9 : 5.97235937e-02
+
+Predicted values for Top 10 houses in TEST dataset:
+[ 881300.   431860.   460595.   430200.   766750.   667420.   350032.
+  512800.7  484000.   457235. ]
+
+RSS on VALIDATION set:
+ k          RSS
+ 1          1.05453830e+14
+ 2          8.34450735e+13
+ 3          7.26920960e+13
+ 4          7.19467217e+13
+ 5          6.98465174e+13
+ 6          6.88995444e+13
+ 7          6.83419735e+13
+ 8          6.73616787e+13
+ 9          6.83727280e+13
+10          6.93350487e+13
+11          6.95238552e+13
+12          6.90499696e+13
+13          7.00112545e+13
+14          7.09086989e+13
+15          7.11069284e+13
+Chosen k is: 8
+
+RSS on TEST set using k=8 is: 1.33118824e+14
+
+Quiz Questions
+
+1. The Euclidean distance between the 1st house of TEST set and the 10th house of TRAINING set is 5.972359e-02.
+
+2. Among the first 10 training houses, the house with index 8 is the closest to the query house.
+
+3. Take the query house to be third house of the test set (features_test[2]).
+   The index of the house in the TRAINING set that is closest to this query house is 382.
+
+4. The predicted value of the query house based on 1-nearest neighbor regression is $249000.00.
+
+5. The indices of the 4 training houses closest to the query house are [ 382 1149 4087 3142].
+
+6. The predicted value of the query house using k=4 is $413987.50.
+
+7. Make predictions for the first 10 houses in the test set, using k=10.
+   The index of the house in this query set that has the lowest predicted value is 6.
+   The predicted value of this house is $350032.00.
+
+8. The RSS on the TEST data is 1.33118824e+14.
+
