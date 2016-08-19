@@ -16,4 +16,5 @@ by yf23
 ### Latest Update:
 
 Regression - FINISHED
+
 Clustering and Retrieval - Week 2 NN Search - Assignment 1
