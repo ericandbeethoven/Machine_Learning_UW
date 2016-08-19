@@ -1,0 +1,182 @@
+
+There is a known bug in pandas 0.18.x that causes justification broken on header line
+when printing DataFrame using df.to_string(index=False) method.
+See https://github.com/pydata/pandas/issues/13032 for detail.
+
+The header lines in this report might look broken in the report.
+Will be fixed when new versions of Pandas releases.
+
+Part 1: Find 10 nearest neighbor of Obama's article
+id                        name   distance
+35817                Barack Obama   0.000000
+24478                   Joe Biden  33.075671
+28447              George W. Bush  34.394767
+35357            Lawrence Summers  36.152455
+14754                 Mitt Romney  36.166283
+13229            Francisco Barrio  36.331804
+31423              Walter Mondale  36.400549
+22745  Wynn Normington Hugh-Jones  36.496575
+36364                  Don Bonker  36.633318
+ 9210                Andy Anstett  36.959437
+
+Part 2: Analysis top words of Barack Obama and Francisco Barrio
+Top 10 words of Barack Obama:
+word  count
+  the     40
+   in     30
+  and     21
+   of     18
+   to     14
+  his     11
+obama      9
+  act      8
+   he      7
+    a      7
+
+Top 10 words of Francisco Barrio:
+word  count
+      the     36
+       of     24
+      and     18
+       in     17
+       he     10
+       to      9
+chihuahua      7
+ governor      6
+        a      6
+       as      5
+
+Combined Top Words:
+word  Obama  Barrio
+the     40      36
+ in     30      17
+and     21      18
+ of     18      24
+ to     14       9
+his     11       5
+ he      7      10
+  a      7       6
+ as      6       5
+was      5       4
+
+Pairwise Euclidean Distance between Barack Obama, George W. Bush, Joe Biden:
+Person 1                 Person 2                 Distance  
+George W. Bush           Joe Biden                32.756679
+Barack Obama             Joe Biden                33.075671
+Barack Obama             George W. Bush           34.394767
+
+Top 10 common words by Obama and Bush:
+word  Obama  Bush
+the     40    39
+ in     30    22
+and     21    14
+ of     18    14
+ to     14    11
+his     11     6
+act      8     3
+ he      7     8
+  a      7     6
+law      6     1
+
+Part 3: Extract the TF-IDF vectors
+id                     name    distance
+35817             Barack Obama    0.000000
+ 7914            Phil Schiliro  106.861014
+46811            Jeff Sessions  108.871674
+44681   Jesse Lee (politician)  109.045698
+38376           Samantha Power  109.108106
+ 6507             Bob Menendez  109.781867
+38714  Eric Stern (politician)  109.957788
+44825           James A. Guest  110.413889
+44368     Roland Grossenbacher  110.470609
+33417            Tulsi Gabbard  110.696998
+
+Top 10 words of Barack Obama:
+word     weight
+      obama  43.295653
+        act  27.678223
+       iraq  17.747379
+    control  14.887061
+        law  14.722936
+    ordered  14.533374
+   military  13.115933
+   response  12.784385
+involvement  12.784385
+ democratic  12.410689
+
+Top 10 words of Phil Schiliro:
+word     weight
+       schiliro  21.972991
+          staff  15.856442
+  congressional  13.547088
+daschleschiliro  10.986495
+          obama   9.621256
+         waxman   9.040585
+      president   9.033587
+       2014from   8.683910
+            law   7.361468
+     consultant   6.913104
+
+Combined Top Words:
+word      Obama  Schiliro
+       obama  43.295653  9.621256
+         law  14.722936  7.361468
+  democratic  12.410689  6.205344
+      senate  10.164288  3.388096
+presidential   7.386955  3.693478
+   president   7.226869  9.033587
+      policy   6.095386  3.047693
+      states   5.473201  1.824400
+      office   5.248173  2.624086
+        2011   5.107041  3.404694
+
+10 nearest neighbors (euclidean distance) and their length:
+id                     name  length    distance
+35817             Barack Obama     540    0.000000
+ 7914            Phil Schiliro     208  106.861014
+46811            Jeff Sessions     230  108.871674
+44681   Jesse Lee (politician)     216  109.045698
+38376           Samantha Power     310  109.108106
+ 6507             Bob Menendez     220  109.781867
+38714  Eric Stern (politician)     255  109.957788
+44825           James A. Guest     215  110.413889
+44368     Roland Grossenbacher     201  110.470609
+33417            Tulsi Gabbard     228  110.696998
+10 nearest neighbors (cosine distance) and their length:
+id                     name  length      distance
+35817             Barack Obama     540 -1.110223e-15
+24478                Joe Biden     414  7.031387e-01
+38376           Samantha Power     310  7.429819e-01
+57108   Hillary Rodham Clinton     580  7.583584e-01
+38714  Eric Stern (politician)     255  7.705612e-01
+46140             Robert Gibbs     257  7.846775e-01
+ 6796              Eric Holder     232  7.880391e-01
+44681   Jesse Lee (politician)     216  7.909264e-01
+18827             Henry Waxman     279  7.983226e-01
+ 2412          Joe the Plumber     217  7.994664e-01
+
+Part 4: Problem with cosine distances: Tweets vs. long articles
+Sample Tweet: Democratic governments control law in response to popular act.
+
+The cosine distance between Obama's article and the tweet is 7.059184e-01.
+
+With cosine distances, the tweet is "nearer" to Barack Obama.
+Ignoring article lengths completely resulted in nonsensical results.
+In practice, it is common to enforce maximum or minimum document lengths.
+
+Quiz Questions:
+1. Among the words that appear in both Barack Obama and Francisco Barrio, 
+   take the 5 that appear most frequently in Obama.
+   There are 56066 articles in the Wikipedia dataset contain all of those 5 words.
+
+2. George W. Bush and Joe Biden has the smallest distance, which is 32.756679.
+
+3. The 10 words that show up most often in Obama's page, and also appear in Bush's page are:
+   ['the', 'in', 'and', 'of', 'to', 'his', 'act', 'he', 'a', 'law']
+
+4. Among the words that appear in both Barack Obama and Phil Schiliro, 
+   take the 5 that appear most frequently in Obama.
+   There are 14 articles in the Wikipedia dataset contain all of those 5 words.
+
+5. The Euclidean distance between TF-IDF features of Obama and Biden is 123.297456.
+

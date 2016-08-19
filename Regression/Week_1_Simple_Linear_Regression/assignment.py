@@ -79,6 +79,7 @@ intercept_sqft, slope_sqft = simple_linear_regression(input_train_feature_sqft, 
 intercept_bdr, slope_bdr = simple_linear_regression(input_train_feature_bdr, output_train)
 
 # QUIZ QUESTIONS:
+print("Quiz Questions:")
 # What is the predicted price for a house with 2650 sqft?
 print("1. The predicted price for a house with 2650 sqft is ${:.3f}\n"
       .format(get_regression_predictions(2650, intercept_sqft, slope_sqft)))

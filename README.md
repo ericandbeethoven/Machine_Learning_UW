@@ -14,4 +14,6 @@ I did not purchase the course so I could not check my answers. Please submit an 
 by yf23
 
 ### Latest Update:
-Regression - Week 6: Nearest Neighbor and Kernel Regression
+
+Regression - FINISHED
+Clustering and Retrieval - Week 2 NN Search - Assignment 1
