@@ -1,0 +1,322 @@
+Part 1: Putting data into bins
+The sign of dot product between random vectors and first document vector, 1 is positive:
+[[1 1 0 0 0 1 1 0 1 1 1 0 0 1 0 1]]
+The hash value of first document vector: 50917
+
+The sign of dot product between random vectors and second document vector, 1 is positive:
+[[1 0 0 0 1 1 0 1 1 0 1 0 1 0 0 1]]
+The hash value of first document vector: 36265
+
+The hash values of all documents:
+[50917 36265 19365 ..., 52983 27589 41449]
+
+Checking train_lsh function:
+Passed!
+
+Part 2: Inspect Bins
+Barack Obama's article ID is 35817.
+Barack Obama's article is in bin with index 50194.
+The bits representation of Obama's bin index is:
+[1 1 0 0 0 1 0 0 0 0 0 1 0 0 1 0]
+
+Joe Biden's article ID is 24478.
+Joe Biden's article is in bin with index 33794.
+The bits representation of Biden's bin index is:
+[1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0]
+Biden's bin representation agrees with Obama's in 14 out of 16 places.
+
+Wynn Normington Hugh-Jones's article ID is 22745.
+Wynn Normington Hugh-Jones's article is in bin with index 4660.
+The bits representation of Hugh-Jones's bin index is:
+[0 0 0 1 0 0 1 0 0 0 1 1 0 1 0 0]
+Hugh-Jones's bin representation agrees with Obama's in 8 out of 16 places.
+
+Documents in the same bin as Obama's article:
+                          name
+21426            Mark Boulware
+39426  John Wells (politician)
+50261        Francis Longstaff
+53937    Madurai T. Srinivasan
+
+Cosine distance from Barack Obama:
+Barack Obama - Joe Biden               : 0.703139
+Barack Obama - Mark Boulware           : 0.950867
+Barack Obama - John Wells (politician) : 0.975966
+Barack Obama - Francis Longstaff       : 0.978256
+Barack Obama - Madurai T. Srinivasan   : 0.993092
+
+Part 3: Query the LSH model
+Checking search_nearby_bins function:
+Passed!
+Passed!
+
+10 Nearest Neighbor of Obama's article:
+id      distance                     name
+35817 -6.661338e-16             Barack Obama
+24478  7.031387e-01                Joe Biden
+56008  8.568481e-01            Nathan Cullen
+37199  8.746687e-01  Barry Sullivan (lawyer)
+40353  8.900342e-01            Neil MacBride
+ 9267  8.983772e-01      Vikramaditya Khanna
+55909  8.993404e-01              Herman Cain
+ 9165  9.009210e-01     Raymond F. Clevenger
+57958  9.030033e-01        Michael J. Malbin
+49872  9.095328e-01            Lowell Barron
+
+Part 4: Experimenting with LSH
+Run LSH with different search radii:
+Radius: 0
+id      distance                     name
+35817 -6.661338e-16             Barack Obama
+21426  9.508668e-01            Mark Boulware
+39426  9.759660e-01  John Wells (politician)
+50261  9.782562e-01        Francis Longstaff
+53937  9.930921e-01    Madurai T. Srinivasan
+
+Radius: 1
+id      distance                                   name
+35817 -6.661338e-16                           Barack Obama
+41631  9.474595e-01                            Binayak Sen
+21426  9.508668e-01                          Mark Boulware
+33243  9.517658e-01                        Janice Lachance
+33996  9.608591e-01                            Rufus Black
+28444  9.610806e-01                       John Paul Phelan
+20347  9.741296e-01                        Gianni De Fraja
+39426  9.759660e-01                John Wells (politician)
+34547  9.782149e-01  Nathan Murphy (Australian politician)
+50261  9.782562e-01                      Francis Longstaff
+
+Radius: 2
+id      distance                 name
+35817 -6.661338e-16         Barack Obama
+24478  7.031387e-01            Joe Biden
+ 9267  8.983772e-01  Vikramaditya Khanna
+55909  8.993404e-01          Herman Cain
+ 6949  9.257130e-01   Harrison J. Goldin
+23524  9.263980e-01        Paul Bennecke
+ 5823  9.284983e-01       Adeleke Mamora
+37262  9.344543e-01           Becky Cain
+10121  9.368964e-01         Bill Bradley
+54782  9.378092e-01   Thomas F. Hartnett
+
+Radius: 3
+id      distance                     name
+35817 -6.661338e-16             Barack Obama
+24478  7.031387e-01                Joe Biden
+56008  8.568481e-01            Nathan Cullen
+37199  8.746687e-01  Barry Sullivan (lawyer)
+40353  8.900342e-01            Neil MacBride
+ 9267  8.983772e-01      Vikramaditya Khanna
+55909  8.993404e-01              Herman Cain
+ 9165  9.009210e-01     Raymond F. Clevenger
+57958  9.030033e-01        Michael J. Malbin
+49872  9.095328e-01            Lowell Barron
+
+Radius: 4
+id      distance                name
+35817 -6.661338e-16        Barack Obama
+24478  7.031387e-01           Joe Biden
+36452  8.339855e-01        Bill Clinton
+24848  8.394067e-01     John C. Eastman
+43155  8.408390e-01         Goodwin Liu
+42965  8.490777e-01     John O. Brennan
+56008  8.568481e-01       Nathan Cullen
+38495  8.575738e-01        Barney Frank
+18752  8.588990e-01      Dan W. Reicher
+ 2092  8.746433e-01  Richard Blumenthal
+
+Radius: 5
+id      distance                     name
+35817 -6.661338e-16             Barack Obama
+24478  7.031387e-01                Joe Biden
+38714  7.705612e-01  Eric Stern (politician)
+46811  8.001974e-01            Jeff Sessions
+14754  8.268540e-01              Mitt Romney
+36452  8.339855e-01             Bill Clinton
+40943  8.345349e-01           Jonathan Alter
+55044  8.370132e-01             Wesley Clark
+24848  8.394067e-01          John C. Eastman
+43155  8.408390e-01              Goodwin Liu
+
+Radius: 6
+id      distance                     name
+35817 -6.661338e-16             Barack Obama
+24478  7.031387e-01                Joe Biden
+38714  7.705612e-01  Eric Stern (politician)
+44681  7.909264e-01   Jesse Lee (politician)
+46811  8.001974e-01            Jeff Sessions
+48693  8.091922e-01              Artur Davis
+23737  8.101646e-01        John D. McCormick
+ 4032  8.145547e-01      Kenneth D. Thompson
+28447  8.232290e-01           George W. Bush
+14754  8.268540e-01              Mitt Romney
+
+Radius: 7
+id      distance                     name
+35817 -6.661338e-16             Barack Obama
+24478  7.031387e-01                Joe Biden
+38376  7.429819e-01           Samantha Power
+57108  7.583584e-01   Hillary Rodham Clinton
+38714  7.705612e-01  Eric Stern (politician)
+44681  7.909264e-01   Jesse Lee (politician)
+18827  7.983226e-01             Henry Waxman
+46811  8.001974e-01            Jeff Sessions
+48693  8.091922e-01              Artur Davis
+23737  8.101646e-01        John D. McCormick
+
+Radius: 8
+id      distance                     name
+35817 -6.661338e-16             Barack Obama
+24478  7.031387e-01                Joe Biden
+38376  7.429819e-01           Samantha Power
+57108  7.583584e-01   Hillary Rodham Clinton
+38714  7.705612e-01  Eric Stern (politician)
+44681  7.909264e-01   Jesse Lee (politician)
+18827  7.983226e-01             Henry Waxman
+46811  8.001974e-01            Jeff Sessions
+48693  8.091922e-01              Artur Davis
+23737  8.101646e-01        John D. McCormick
+
+Radius: 9
+id      distance                     name
+35817 -6.661338e-16             Barack Obama
+24478  7.031387e-01                Joe Biden
+38376  7.429819e-01           Samantha Power
+57108  7.583584e-01   Hillary Rodham Clinton
+38714  7.705612e-01  Eric Stern (politician)
+46140  7.846775e-01             Robert Gibbs
+44681  7.909264e-01   Jesse Lee (politician)
+18827  7.983226e-01             Henry Waxman
+46811  8.001974e-01            Jeff Sessions
+39357  8.090508e-01              John McCain
+
+Radius: 10
+id      distance                     name
+35817 -6.661338e-16             Barack Obama
+24478  7.031387e-01                Joe Biden
+38376  7.429819e-01           Samantha Power
+57108  7.583584e-01   Hillary Rodham Clinton
+38714  7.705612e-01  Eric Stern (politician)
+46140  7.846775e-01             Robert Gibbs
+44681  7.909264e-01   Jesse Lee (politician)
+18827  7.983226e-01             Henry Waxman
+ 2412  7.994664e-01          Joe the Plumber
+46811  8.001974e-01            Jeff Sessions
+
+Radius: 11
+id      distance                     name
+35817 -6.661338e-16             Barack Obama
+24478  7.031387e-01                Joe Biden
+38376  7.429819e-01           Samantha Power
+57108  7.583584e-01   Hillary Rodham Clinton
+38714  7.705612e-01  Eric Stern (politician)
+46140  7.846775e-01             Robert Gibbs
+44681  7.909264e-01   Jesse Lee (politician)
+18827  7.983226e-01             Henry Waxman
+ 2412  7.994664e-01          Joe the Plumber
+46811  8.001974e-01            Jeff Sessions
+
+Radius: 12
+id      distance                     name
+35817 -6.661338e-16             Barack Obama
+24478  7.031387e-01                Joe Biden
+38376  7.429819e-01           Samantha Power
+57108  7.583584e-01   Hillary Rodham Clinton
+38714  7.705612e-01  Eric Stern (politician)
+46140  7.846775e-01             Robert Gibbs
+ 6796  7.880391e-01              Eric Holder
+44681  7.909264e-01   Jesse Lee (politician)
+18827  7.983226e-01             Henry Waxman
+ 2412  7.994664e-01          Joe the Plumber
+
+Radius: 13
+id      distance                     name
+35817 -6.661338e-16             Barack Obama
+24478  7.031387e-01                Joe Biden
+38376  7.429819e-01           Samantha Power
+57108  7.583584e-01   Hillary Rodham Clinton
+38714  7.705612e-01  Eric Stern (politician)
+46140  7.846775e-01             Robert Gibbs
+ 6796  7.880391e-01              Eric Holder
+44681  7.909264e-01   Jesse Lee (politician)
+18827  7.983226e-01             Henry Waxman
+ 2412  7.994664e-01          Joe the Plumber
+
+Radius: 14
+id      distance                     name
+35817 -6.661338e-16             Barack Obama
+24478  7.031387e-01                Joe Biden
+38376  7.429819e-01           Samantha Power
+57108  7.583584e-01   Hillary Rodham Clinton
+38714  7.705612e-01  Eric Stern (politician)
+46140  7.846775e-01             Robert Gibbs
+ 6796  7.880391e-01              Eric Holder
+44681  7.909264e-01   Jesse Lee (politician)
+18827  7.983226e-01             Henry Waxman
+ 2412  7.994664e-01          Joe the Plumber
+
+Radius: 15
+id      distance                     name
+35817 -6.661338e-16             Barack Obama
+24478  7.031387e-01                Joe Biden
+38376  7.429819e-01           Samantha Power
+57108  7.583584e-01   Hillary Rodham Clinton
+38714  7.705612e-01  Eric Stern (politician)
+46140  7.846775e-01             Robert Gibbs
+ 6796  7.880391e-01              Eric Holder
+44681  7.909264e-01   Jesse Lee (politician)
+18827  7.983226e-01             Henry Waxman
+ 2412  7.994664e-01          Joe the Plumber
+
+Radius: 16
+id      distance                     name
+35817 -6.661338e-16             Barack Obama
+24478  7.031387e-01                Joe Biden
+38376  7.429819e-01           Samantha Power
+57108  7.583584e-01   Hillary Rodham Clinton
+38714  7.705612e-01  Eric Stern (politician)
+46140  7.846775e-01             Robert Gibbs
+ 6796  7.880391e-01              Eric Holder
+44681  7.909264e-01   Jesse Lee (politician)
+18827  7.983226e-01             Henry Waxman
+ 2412  7.994664e-01          Joe the Plumber
+
+Randomly choose 10 documents to run queries:
+1 / 10
+2 / 10
+3 / 10
+4 / 10
+5 / 10
+6 / 10
+7 / 10
+8 / 10
+9 / 10
+10 / 10
+
+Change the number of random vectors in LSH algorithm (number of bits):
+num_vector = 5
+num_vector = 6
+num_vector = 7
+num_vector = 8
+num_vector = 9
+num_vector = 10
+num_vector = 11
+num_vector = 12
+num_vector = 13
+num_vector = 14
+num_vector = 15
+num_vector = 16
+num_vector = 17
+num_vector = 18
+num_vector = 19
+
+Quiz Questions:
+1. The document ID of Barack Obama's article is 35817.
+
+2. The bin contains Barack Obama's article has index 50194.
+
+3. Biden's bin representation agrees with Obama's in 14 out of 16 places.
+
+4. The smallest search radius that yields the correct nearest neighbor Joe Biden is 2.
+
+5. The smallest search radius that produces an average distance of <= 0.78 is 7.
