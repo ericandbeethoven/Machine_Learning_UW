@@ -17,4 +17,4 @@ by yf23
 
 Regression - FINISHED
 
-Clustering and Retrieval - Week 2 NN Search - Assignment 2
+Clustering and Retrieval - Week 3 K-means - In Progress
