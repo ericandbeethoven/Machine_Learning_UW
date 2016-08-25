@@ -1,0 +1,667 @@
+Look at documents 100 through 102 as query documents:
+The distance from every data point to each query vector:
+[[ 1.41000789  1.36894636]
+ [ 1.40935215  1.41023886]
+ [ 1.39855967  1.40890299]
+ ..., 
+ [ 1.41108296  1.39123646]
+ [ 1.41022804  1.31468652]
+ [ 1.39899784  1.41072448]]
+
+Take first 3 rows of tf_idf as centroids.
+The distance from all data points to each of the centroids:
+[[ 0.          1.40775177  1.38784582]
+ [ 1.40775177  0.          1.39867641]
+ [ 1.38784582  1.39867641  0.        ]
+ ..., 
+ [ 1.37070999  1.40978937  1.40616385]
+ [ 1.35214578  1.41306211  1.40869799]
+ [ 1.40799024  1.41353429  1.40903605]]
+Test Pass!
+
+The centroid indices that each data point assigned:
+[0 1 2 ..., 0 0 0]
+Test Pass!
+
+Testing function assign_clusters...
+Test Pass!
+
+Testing function revise_centroids...
+Test Pass!
+
+Run k-means with k=3 on TF-IDF dataset:
+Iter   1: 19157 elements changed their cluster assignment.
+Iter   2:  7739 elements changed their cluster assignment.
+Iter   3:  5119 elements changed their cluster assignment.
+Iter   4:  3370 elements changed their cluster assignment.
+Iter   5:  2811 elements changed their cluster assignment.
+Iter   6:  3233 elements changed their cluster assignment.
+Iter   7:  3815 elements changed their cluster assignment.
+Iter   8:  3172 elements changed their cluster assignment.
+Iter   9:  1149 elements changed their cluster assignment.
+Iter  10:   498 elements changed their cluster assignment.
+Iter  11:   265 elements changed their cluster assignment.
+Iter  12:   149 elements changed their cluster assignment.
+Iter  13:   100 elements changed their cluster assignment.
+Iter  14:    76 elements changed their cluster assignment.
+Iter  15:    67 elements changed their cluster assignment.
+Iter  16:    51 elements changed their cluster assignment.
+Iter  17:    47 elements changed their cluster assignment.
+Iter  18:    40 elements changed their cluster assignment.
+Iter  19:    34 elements changed their cluster assignment.
+Iter  20:    35 elements changed their cluster assignment.
+Iter  21:    39 elements changed their cluster assignment.
+Iter  22:    24 elements changed their cluster assignment.
+Iter  23:    16 elements changed their cluster assignment.
+Iter  24:    12 elements changed their cluster assignment.
+Iter  25:    14 elements changed their cluster assignment.
+Iter  26:    17 elements changed their cluster assignment.
+Iter  27:    15 elements changed their cluster assignment.
+Iter  28:    14 elements changed their cluster assignment.
+Iter  29:    16 elements changed their cluster assignment.
+Iter  30:    21 elements changed their cluster assignment.
+Iter  31:    22 elements changed their cluster assignment.
+Iter  32:    33 elements changed their cluster assignment.
+Iter  33:    35 elements changed their cluster assignment.
+Iter  34:    39 elements changed their cluster assignment.
+Iter  35:    36 elements changed their cluster assignment.
+Iter  36:    36 elements changed their cluster assignment.
+Iter  37:    25 elements changed their cluster assignment.
+Iter  38:    27 elements changed their cluster assignment.
+Iter  39:    25 elements changed their cluster assignment.
+Iter  40:    28 elements changed their cluster assignment.
+Iter  41:    35 elements changed their cluster assignment.
+Iter  42:    31 elements changed their cluster assignment.
+Iter  43:    25 elements changed their cluster assignment.
+Iter  44:    18 elements changed their cluster assignment.
+Iter  45:    15 elements changed their cluster assignment.
+Iter  46:    10 elements changed their cluster assignment.
+Iter  47:     8 elements changed their cluster assignment.
+Iter  48:     8 elements changed their cluster assignment.
+Iter  49:     8 elements changed their cluster assignment.
+Iter  50:     7 elements changed their cluster assignment.
+Iter  51:     8 elements changed their cluster assignment.
+Iter  52:     3 elements changed their cluster assignment.
+Iter  53:     3 elements changed their cluster assignment.
+Iter  54:     4 elements changed their cluster assignment.
+Iter  55:     2 elements changed their cluster assignment.
+Iter  56:     3 elements changed their cluster assignment.
+Iter  57:     3 elements changed their cluster assignment.
+Iter  58:     1 elements changed their cluster assignment.
+Iter  59:     1 elements changed their cluster assignment.
+
+Index of Cluster     # of Data Points Assigned     
+       0                    19595
+       1                    10427
+       2                    29049
+
+Run k-means multiple times with different randomly chosen initial centroids:
+seed=000000, heterogeneity=57457.52442, largest cluster size=18047
+seed=020000, heterogeneity=57533.20100, largest cluster size=15779
+seed=040000, heterogeneity=57512.69257, largest cluster size=18132
+seed=060000, heterogeneity=57466.97925, largest cluster size=17900
+seed=080000, heterogeneity=57494.92990, largest cluster size=17582
+seed=100000, heterogeneity=57484.42210, largest cluster size=16969
+seed=120000, heterogeneity=57554.62410, largest cluster size=16481
+Running time: 327.1717 seconds
+
+Run k-means multiple times with different smart chosen initial centroids:
+seed=000000, heterogeneity=57441.33298, largest cluster size=17791
+seed=020000, heterogeneity=57457.50383, largest cluster size=18214
+seed=040000, heterogeneity=57469.82237, largest cluster size=20919
+seed=060000, heterogeneity=57503.05355, largest cluster size=18574
+seed=080000, heterogeneity=57464.05684, largest cluster size=18723
+seed=100000, heterogeneity=57487.57010, largest cluster size=18088
+seed=120000, heterogeneity=57534.79120, largest cluster size=15800
+Running time: 451.8727 seconds
+
+Run k-means with different k (number of centroids):
+k=2, heterogeneity=58179.574527
+k=10, heterogeneity=57441.332981
+k=25, heterogeneity=56816.942572
+k=50, heterogeneity=56299.537281
+k=100, heterogeneity=55538.851583
+
+Visualize document clusters:
+k = 2:
+==========================================================
+Cluster 0    
+she: 0.025 her: 0.017 music: 0.012 he: 0.011 university: 0.011 
+
+* Anita Kunz                                         0.97401
+  anita e kunz oc born 1956 is a canadianborn artist and illustratorkunz has lived in london
+   new york and toronto contributing to magazines and working
+
+* Janet Jackson                                      0.97472
+  janet damita jo jackson born may 16 1966 is an american singer songwriter and actress know
+  n for a series of sonically innovative socially conscious and
+
+* Madonna (entertainer)                              0.97475
+  madonna louise ciccone tkoni born august 16 1958 is an american singer songwriter actress 
+  and businesswoman she achieved popularity by pushing the boundaries of lyrical
+
+* %C3%81ine Hyland                                   0.97536
+  ine hyland ne donlon is emeritus professor of education and former vicepresident of univer
+  sity college cork ireland she was born in 1942 in athboy co
+
+* Jane Fonda                                         0.97621
+  jane fonda born lady jayne seymour fonda december 21 1937 is an american actress writer po
+  litical activist former fashion model and fitness guru she is
+
+* Christine Robertson                                0.97643
+  christine mary robertson born 5 october 1948 is an australian politician and former austra
+  lian labor party member of the new south wales legislative council serving
+
+* Pat Studdy-Clift                                   0.97643
+  pat studdyclift is an australian author specialising in historical fiction and nonfictionb
+  orn in 1925 she lived in gunnedah until she was sent to a boarding
+
+* Alexandra Potter                                   0.97646
+  alexandra potter born 1970 is a british author of romantic comediesborn in bradford yorksh
+  ire england and educated at liverpool university gaining an honors degree in
+==========================================================
+Cluster 1    
+league: 0.040 season: 0.036 team: 0.029 football: 0.029 played: 0.028 
+
+* Todd Williams                                      0.95468
+  todd michael williams born february 13 1971 in syracuse new york is a former major league 
+  baseball relief pitcher he attended east syracuseminoa high school
+
+* Gord Sherven                                       0.95622
+  gordon r sherven born august 21 1963 in gravelbourg saskatchewan and raised in mankota sas
+  katchewan is a retired canadian professional ice hockey forward who played
+
+* Justin Knoedler                                    0.95639
+  justin joseph knoedler born july 17 1980 in springfield illinois is a former major league 
+  baseball catcherknoedler was originally drafted by the st louis cardinals
+
+* Chris Day                                          0.95648
+  christopher nicholas chris day born 28 july 1975 is an english professional footballer who
+   plays as a goalkeeper for stevenageday started his career at tottenham
+
+* Tony Smith (footballer, born 1957)                 0.95653
+  anthony tony smith born 20 february 1957 is a former footballer who played as a central de
+  fender in the football league in the 1970s and
+
+* Ashley Prescott                                    0.95761
+  ashley prescott born 11 september 1972 is a former australian rules footballer he played w
+  ith the richmond and fremantle football clubs in the afl between
+
+* Leslie Lea                                         0.95802
+  leslie lea born 5 october 1942 in manchester is an english former professional footballer 
+  he played as a midfielderlea began his professional career with blackpool
+
+* Tommy Anderson (footballer)                        0.95818
+  thomas cowan tommy anderson born 24 september 1934 in haddington is a scottish former prof
+  essional footballer he played as a forward and was noted for
+==========================================================
+Cluster 0: artists, songwriters, professors, politicians, writers, etc.
+Cluster 1: baseball players, hockey players, football (soccer) players, etc.
+
+k = 10:
+==========================================================
+Cluster 0    
+art: 0.013 he: 0.012 book: 0.010 his: 0.009 that: 0.009 
+==========================================================
+Cluster 1    
+film: 0.089 theatre: 0.037 films: 0.032 television: 0.028 actor: 0.027 
+==========================================================
+Cluster 2    
+she: 0.139 her: 0.091 miss: 0.013 actress: 0.012 women: 0.011 
+==========================================================
+Cluster 3    
+party: 0.046 election: 0.043 minister: 0.040 elected: 0.029 member: 0.021 
+==========================================================
+Cluster 4    
+championships: 0.042 tour: 0.038 championship: 0.033 world: 0.030 won: 0.029 
+==========================================================
+Cluster 5    
+music: 0.056 album: 0.040 band: 0.035 orchestra: 0.023 released: 0.022 
+==========================================================
+Cluster 6    
+football: 0.049 season: 0.044 league: 0.042 played: 0.037 coach: 0.034 
+==========================================================
+Cluster 7    
+baseball: 0.110 league: 0.103 major: 0.052 games: 0.047 season: 0.045 
+==========================================================
+Cluster 8    
+research: 0.041 university: 0.036 professor: 0.032 science: 0.025 institute: 0.020 
+==========================================================
+Cluster 9    
+law: 0.133 court: 0.081 judge: 0.060 district: 0.042 justice: 0.039 
+==========================================================
+Cluster 0: artists, poets, writers, environmentalists
+Cluster 1: film directors
+Cluster 2: female figures from various fields
+Cluster 3: politicians
+Cluster 4: track and field athletes
+Cluster 5: composers, songwriters, singers, music producers
+Cluster 6: soccer (football) players
+Cluster 7: baseball players
+Cluster 8: professors, researchers, scholars
+Cluster 9: lawyers, judges, legal scholars
+
+k = 25:
+==========================================================
+Cluster 0    
+album: 0.055 band: 0.046 music: 0.042 released: 0.029 jazz: 0.024 
+==========================================================
+Cluster 1    
+poetry: 0.202 poems: 0.078 poet: 0.066 literary: 0.041 poets: 0.040 
+==========================================================
+Cluster 2    
+rugby: 0.198 cup: 0.049 against: 0.046 played: 0.044 wales: 0.039 
+==========================================================
+Cluster 3    
+league: 0.096 baseball: 0.091 season: 0.047 games: 0.047 major: 0.044 
+==========================================================
+Cluster 4    
+president: 0.024 board: 0.024 chairman: 0.022 served: 0.020 business: 0.020 
+==========================================================
+Cluster 5    
+football: 0.061 league: 0.056 club: 0.049 season: 0.048 played: 0.038 
+==========================================================
+Cluster 6    
+radio: 0.081 news: 0.059 show: 0.049 bbc: 0.034 television: 0.030 
+==========================================================
+Cluster 7    
+theatre: 0.066 series: 0.035 television: 0.034 actor: 0.034 comedy: 0.032 
+==========================================================
+Cluster 8    
+research: 0.051 university: 0.039 professor: 0.039 science: 0.030 institute: 0.022 
+==========================================================
+Cluster 9    
+law: 0.141 court: 0.088 judge: 0.066 district: 0.045 justice: 0.042 
+==========================================================
+Cluster 10    
+marathon: 0.132 metres: 0.124 championships: 0.116 she: 0.079 athletics: 0.071 
+==========================================================
+Cluster 11    
+he: 0.011 that: 0.010 his: 0.009 were: 0.007 had: 0.007 
+==========================================================
+Cluster 12    
+racing: 0.036 championship: 0.034 world: 0.028 team: 0.027 championships: 0.027 
+==========================================================
+Cluster 13    
+church: 0.120 bishop: 0.087 lds: 0.043 diocese: 0.042 archbishop: 0.041 
+==========================================================
+Cluster 14    
+art: 0.149 museum: 0.080 gallery: 0.058 artist: 0.033 arts: 0.032 
+==========================================================
+Cluster 15    
+book: 0.043 novel: 0.038 published: 0.035 books: 0.031 fiction: 0.028 
+==========================================================
+Cluster 16    
+football: 0.119 nfl: 0.088 yards: 0.065 coach: 0.056 bowl: 0.046 
+==========================================================
+Cluster 17    
+tour: 0.257 pga: 0.214 golf: 0.141 open: 0.073 golfer: 0.062 
+==========================================================
+Cluster 18    
+republican: 0.061 senate: 0.050 district: 0.044 state: 0.039 democratic: 0.037 
+==========================================================
+Cluster 19    
+basketball: 0.141 coach: 0.091 nba: 0.077 points: 0.045 season: 0.041 
+==========================================================
+Cluster 20    
+air: 0.149 force: 0.106 command: 0.097 commander: 0.095 staff: 0.062 
+==========================================================
+Cluster 21    
+party: 0.064 minister: 0.064 election: 0.055 parliament: 0.031 elected: 0.030 
+==========================================================
+Cluster 22    
+she: 0.146 her: 0.096 miss: 0.016 actress: 0.014 women: 0.011 
+==========================================================
+Cluster 23    
+film: 0.166 films: 0.054 festival: 0.044 directed: 0.033 feature: 0.032 
+==========================================================
+Cluster 24    
+music: 0.096 orchestra: 0.093 symphony: 0.061 opera: 0.048 conductor: 0.044 
+==========================================================
+Cluster 0: composers, songwriters, singers, music producers
+Cluster 1: poets
+Cluster 2: rugby players
+Cluster 3: baseball players
+Cluster 4: government officials
+Cluster 5: football players
+Cluster 6: radio hosts
+Cluster 7: actors, TV directors
+Cluster 8: professors, researchers, scholars
+Cluster 9: lawyers, judges, legal scholars
+Cluster 10: track and field athletes
+Cluster 11: (mixed; no clear theme)
+Cluster 12: car racers
+Cluster 13: priets, bishops, church leaders
+Cluster 14: painters, sculptors, artists
+Cluster 15: novelists
+Cluster 16: American football players
+Cluster 17: golfers
+Cluster 18: American politicians
+Cluster 19: basketball players
+Cluster 20: generals of U.S. Air Force
+Cluster 21: politicians
+Cluster 22: female figures of various fields
+Cluster 23: film directors
+Cluster 24: music directors, composers, conductors
+
+k = 100:
+==========================================================
+Cluster 0    
+brazilian: 0.135 brazil: 0.083 de: 0.057 rio: 0.051 paulo: 0.051 
+==========================================================
+Cluster 1    
+film: 0.183 festival: 0.054 films: 0.052 documentary: 0.037 directed: 0.036 
+==========================================================
+Cluster 2    
+comics: 0.197 comic: 0.123 strip: 0.038 graphic: 0.037 book: 0.034 
+==========================================================
+Cluster 3    
+mayor: 0.142 city: 0.047 council: 0.037 elected: 0.032 election: 0.028 
+==========================================================
+Cluster 4    
+tour: 0.258 pga: 0.215 golf: 0.140 open: 0.073 golfer: 0.062 
+==========================================================
+Cluster 5    
+band: 0.111 album: 0.048 bands: 0.032 rock: 0.032 guitar: 0.031 
+==========================================================
+Cluster 6    
+football: 0.120 afl: 0.113 australian: 0.083 season: 0.058 club: 0.058 
+==========================================================
+Cluster 7    
+cricket: 0.194 firstclass: 0.114 cricketer: 0.074 batsman: 0.068 wickets: 0.061 
+==========================================================
+Cluster 8    
+physics: 0.181 quantum: 0.064 theoretical: 0.049 theory: 0.042 research: 0.041 
+==========================================================
+Cluster 9    
+editor: 0.052 journalism: 0.042 journalist: 0.035 news: 0.031 times: 0.030 
+==========================================================
+Cluster 10    
+history: 0.054 university: 0.043 studies: 0.039 professor: 0.037 research: 0.025 
+==========================================================
+Cluster 11    
+rugby: 0.219 cup: 0.058 against: 0.051 union: 0.046 played: 0.043 
+==========================================================
+Cluster 12    
+election: 0.094 manitoba: 0.093 liberal: 0.074 riding: 0.065 quebec: 0.063 
+==========================================================
+Cluster 13    
+party: 0.079 election: 0.051 parliament: 0.033 elected: 0.033 seat: 0.027 
+==========================================================
+Cluster 14    
+republican: 0.068 senate: 0.054 district: 0.046 state: 0.040 house: 0.039 
+==========================================================
+Cluster 15    
+poker: 0.477 wsop: 0.121 event: 0.091 limit: 0.078 winnings: 0.072 
+==========================================================
+Cluster 16    
+bishop: 0.147 church: 0.083 diocese: 0.075 archbishop: 0.074 ordained: 0.055 
+==========================================================
+Cluster 17    
+football: 0.119 nfl: 0.109 yards: 0.084 bowl: 0.053 quarterback: 0.041 
+==========================================================
+Cluster 18    
+baseball: 0.118 league: 0.109 runs: 0.062 major: 0.052 batted: 0.045 
+==========================================================
+Cluster 19    
+she: 0.116 her: 0.072 women: 0.017 book: 0.011 university: 0.011 
+==========================================================
+Cluster 20    
+de: 0.128 la: 0.060 french: 0.029 el: 0.024 france: 0.023 
+==========================================================
+Cluster 21    
+soccer: 0.299 league: 0.072 indoor: 0.066 team: 0.054 season: 0.052 
+==========================================================
+Cluster 22    
+town: 0.093 league: 0.081 season: 0.067 club: 0.064 loan: 0.063 
+==========================================================
+Cluster 23    
+linguistics: 0.161 language: 0.149 linguistic: 0.063 languages: 0.042 research: 0.036 
+==========================================================
+Cluster 24    
+basketball: 0.163 nba: 0.114 points: 0.066 season: 0.044 player: 0.043 
+==========================================================
+Cluster 25    
+russian: 0.174 soviet: 0.064 moscow: 0.060 russia: 0.056 vladimir: 0.024 
+==========================================================
+Cluster 26    
+law: 0.247 legal: 0.051 professor: 0.039 university: 0.038 school: 0.033 
+==========================================================
+Cluster 27    
+league: 0.088 cup: 0.070 goals: 0.059 season: 0.052 scored: 0.052 
+==========================================================
+Cluster 28    
+radio: 0.134 show: 0.065 bbc: 0.039 host: 0.034 station: 0.034 
+==========================================================
+Cluster 29    
+research: 0.061 medical: 0.044 medicine: 0.041 psychology: 0.037 professor: 0.031 
+==========================================================
+Cluster 30    
+chef: 0.260 restaurant: 0.145 culinary: 0.072 cooking: 0.066 food: 0.060 
+==========================================================
+Cluster 31    
+news: 0.148 anchor: 0.078 she: 0.060 reporter: 0.057 correspondent: 0.032 
+==========================================================
+Cluster 32    
+theatre: 0.186 directed: 0.034 production: 0.032 musical: 0.028 play: 0.027 
+==========================================================
+Cluster 33    
+violin: 0.188 violinist: 0.076 orchestra: 0.068 music: 0.061 symphony: 0.044 
+==========================================================
+Cluster 34    
+philosophy: 0.228 philosophical: 0.045 university: 0.044 philosopher: 0.041 professor: 0.040 
+==========================================================
+Cluster 35    
+ambassador: 0.101 foreign: 0.086 nations: 0.064 affairs: 0.064 united: 0.047 
+==========================================================
+Cluster 36    
+minister: 0.162 prime: 0.063 party: 0.043 cabinet: 0.042 government: 0.038 
+==========================================================
+Cluster 37    
+mathematics: 0.148 mathematical: 0.112 theory: 0.054 professor: 0.047 mathematician: 0.045 
+==========================================================
+Cluster 38    
+she: 0.161 her: 0.138 actress: 0.032 film: 0.023 music: 0.019 
+==========================================================
+Cluster 39    
+photography: 0.116 photographer: 0.075 photographs: 0.056 photographic: 0.032 images: 0.032 
+==========================================================
+Cluster 40    
+football: 0.050 club: 0.044 cup: 0.040 team: 0.040 fc: 0.037 
+==========================================================
+Cluster 41    
+miss: 0.358 pageant: 0.206 usa: 0.123 she: 0.112 her: 0.063 
+==========================================================
+Cluster 42    
+army: 0.077 military: 0.076 commander: 0.073 command: 0.071 staff: 0.055 
+==========================================================
+Cluster 43    
+scottish: 0.203 scotland: 0.114 glasgow: 0.061 snp: 0.047 edinburgh: 0.040 
+==========================================================
+Cluster 44    
+puerto: 0.310 rico: 0.222 rican: 0.065 juan: 0.042 ricos: 0.032 
+==========================================================
+Cluster 45    
+economics: 0.168 economic: 0.102 economist: 0.058 research: 0.047 finance: 0.043 
+==========================================================
+Cluster 46    
+art: 0.109 gallery: 0.044 artist: 0.037 painting: 0.033 paintings: 0.033 
+==========================================================
+Cluster 47    
+zimbabwe: 0.245 zimbabwean: 0.082 mugabe: 0.067 harare: 0.061 mbira: 0.047 
+==========================================================
+Cluster 48    
+design: 0.166 architecture: 0.117 architectural: 0.058 architect: 0.039 architects: 0.038 
+==========================================================
+Cluster 49    
+tennis: 0.188 doubles: 0.159 singles: 0.100 open: 0.083 slam: 0.063 
+==========================================================
+Cluster 50    
+computer: 0.118 software: 0.066 science: 0.036 systems: 0.032 computing: 0.032 
+==========================================================
+Cluster 51    
+role: 0.052 series: 0.048 film: 0.046 actor: 0.043 television: 0.041 
+==========================================================
+Cluster 52    
+food: 0.207 wine: 0.120 cooking: 0.050 she: 0.033 cookbook: 0.031 
+==========================================================
+Cluster 53    
+coach: 0.203 head: 0.086 basketball: 0.062 coaching: 0.051 football: 0.047 
+==========================================================
+Cluster 54    
+art: 0.211 museum: 0.186 gallery: 0.077 arts: 0.045 contemporary: 0.045 
+==========================================================
+Cluster 55    
+jewish: 0.218 rabbi: 0.160 israel: 0.039 yeshiva: 0.034 hebrew: 0.031 
+==========================================================
+Cluster 56    
+marathon: 0.466 half: 0.088 she: 0.081 hours: 0.064 championships: 0.061 
+==========================================================
+Cluster 57    
+album: 0.107 released: 0.054 single: 0.040 song: 0.039 music: 0.039 
+==========================================================
+Cluster 58    
+music: 0.056 jazz: 0.051 album: 0.024 records: 0.021 band: 0.021 
+==========================================================
+Cluster 59    
+iraqi: 0.180 iraq: 0.148 baghdad: 0.060 saddam: 0.047 hussein: 0.038 
+==========================================================
+Cluster 60    
+olympics: 0.060 championships: 0.057 olympic: 0.055 world: 0.040 medal: 0.038 
+==========================================================
+Cluster 61    
+racing: 0.126 formula: 0.078 race: 0.066 car: 0.061 driver: 0.055 
+==========================================================
+Cluster 62    
+air: 0.382 force: 0.247 command: 0.110 commander: 0.099 base: 0.083 
+==========================================================
+Cluster 63    
+orchestra: 0.204 symphony: 0.148 conductor: 0.111 music: 0.076 philharmonic: 0.076 
+==========================================================
+Cluster 64    
+wrestling: 0.300 wwe: 0.167 wrestler: 0.091 tag: 0.080 championship: 0.080 
+==========================================================
+Cluster 65    
+freestyle: 0.154 swimming: 0.123 m: 0.118 swimmer: 0.090 heat: 0.075 
+==========================================================
+Cluster 66    
+hurling: 0.170 allireland: 0.150 munster: 0.095 intercounty: 0.090 cork: 0.083 
+==========================================================
+Cluster 67    
+gay: 0.195 lesbian: 0.067 lgbt: 0.053 queer: 0.026 bisexual: 0.024 
+==========================================================
+Cluster 68    
+lds: 0.194 church: 0.184 churchs: 0.099 latterday: 0.072 seventy: 0.072 
+==========================================================
+Cluster 69    
+opera: 0.265 she: 0.065 la: 0.040 sang: 0.039 operatic: 0.037 
+==========================================================
+Cluster 70    
+health: 0.207 medicine: 0.082 medical: 0.081 care: 0.052 research: 0.032 
+==========================================================
+Cluster 71    
+ballet: 0.230 dance: 0.174 dancer: 0.074 she: 0.058 choreographer: 0.048 
+==========================================================
+Cluster 72    
+rugby: 0.126 league: 0.091 nrl: 0.066 super: 0.057 queensland: 0.047 
+==========================================================
+Cluster 73    
+boxing: 0.132 fight: 0.085 title: 0.070 boxer: 0.066 champion: 0.059 
+==========================================================
+Cluster 74    
+engineering: 0.101 research: 0.058 chemistry: 0.057 science: 0.048 technology: 0.042 
+==========================================================
+Cluster 75    
+business: 0.037 chairman: 0.033 board: 0.030 company: 0.029 ceo: 0.026 
+==========================================================
+Cluster 76    
+he: 0.011 that: 0.009 his: 0.009 it: 0.007 has: 0.007 
+==========================================================
+Cluster 77    
+film: 0.109 films: 0.083 tamil: 0.073 indian: 0.066 telugu: 0.058 
+==========================================================
+Cluster 78    
+fashion: 0.218 she: 0.060 her: 0.048 designer: 0.043 vogue: 0.040 
+==========================================================
+Cluster 79    
+climate: 0.238 change: 0.107 energy: 0.066 global: 0.056 environmental: 0.054 
+==========================================================
+Cluster 80    
+police: 0.233 constable: 0.052 chief: 0.049 commissioner: 0.038 officers: 0.034 
+==========================================================
+Cluster 81    
+rights: 0.155 human: 0.112 she: 0.036 law: 0.030 civil: 0.028 
+==========================================================
+Cluster 82    
+greek: 0.223 greece: 0.088 athens: 0.075 hellenic: 0.023 she: 0.022 
+==========================================================
+Cluster 83    
+she: 0.185 her: 0.052 party: 0.039 election: 0.032 member: 0.029 
+==========================================================
+Cluster 84    
+comedy: 0.053 show: 0.046 television: 0.041 series: 0.033 producer: 0.028 
+==========================================================
+Cluster 85    
+india: 0.095 indian: 0.087 sabha: 0.045 lok: 0.040 singh: 0.033 
+==========================================================
+Cluster 86    
+canadian: 0.118 canada: 0.075 ontario: 0.047 toronto: 0.045 alberta: 0.025 
+==========================================================
+Cluster 87    
+manager: 0.163 football: 0.072 league: 0.072 club: 0.061 division: 0.045 
+==========================================================
+Cluster 88    
+hong: 0.286 kong: 0.266 chinese: 0.065 china: 0.037 wong: 0.034 
+==========================================================
+Cluster 89    
+animation: 0.194 animated: 0.096 animator: 0.071 film: 0.067 disney: 0.042 
+==========================================================
+Cluster 90    
+policy: 0.052 political: 0.043 university: 0.037 international: 0.033 research: 0.032 
+==========================================================
+Cluster 91    
+prison: 0.041 sentenced: 0.030 court: 0.028 convicted: 0.027 arrested: 0.024 
+==========================================================
+Cluster 92    
+metres: 0.178 championships: 0.144 athletics: 0.100 she: 0.077 m: 0.073 
+==========================================================
+Cluster 93    
+hockey: 0.220 nhl: 0.138 ice: 0.067 season: 0.053 league: 0.048 
+==========================================================
+Cluster 94    
+chess: 0.414 grandmaster: 0.085 olympiad: 0.066 championship: 0.064 fide: 0.059 
+==========================================================
+Cluster 95    
+baseball: 0.098 league: 0.097 pitcher: 0.082 era: 0.080 pitched: 0.073 
+==========================================================
+Cluster 96    
+court: 0.137 judge: 0.115 district: 0.081 law: 0.076 justice: 0.057 
+==========================================================
+Cluster 97    
+poetry: 0.207 poems: 0.080 poet: 0.068 poets: 0.042 literary: 0.040 
+==========================================================
+Cluster 98    
+novel: 0.078 fiction: 0.059 published: 0.044 book: 0.041 novels: 0.039 
+==========================================================
+Cluster 99    
+music: 0.124 piano: 0.049 composition: 0.041 composer: 0.037 orchestra: 0.036 
+==========================================================
+When k = 100, the class of rugby players have been broken into two clusters (11 and 72).
+Same goes for soccer (football) players (clusters 6, 21, 40, and 87),
+although some may like the benefit of having a separate category for Australian Football League.
+The class of baseball players have been also broken into two clusters (18 and 95).
+
+Quiz Questions:
+1. The clustering objective (heterogeneity) is non-increasing for this example: True.
+
+2. If the clustering objective (heterogeneity) would ever increase when running k-means, that would indicate THERE IS A BUG IN THE K-MEANS CODE.
+
+3. Cluster #2 contains the greatest number of data points.
+
+4. The size of the largest cluster across multiple runs using random initialization are:
+   [18047, 15779, 18132, 17900, 17582, 16969, 16481]
+   The minimum value is 15779. The maximum value is 18132.
+
+5. When k = 10: Cluster 0 contains the greatest number of articles. Cluster 9 contains the least number of articles.
+
+6. When k = 100, there are 35 clusters have fewer than 236 articles, i.e. 0.4% of the dataset.
