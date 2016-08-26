@@ -17,4 +17,4 @@ by yf23
 
 Regression - FINISHED
 
-Clustering and Retrieval - Week 3 K-means
+Clustering and Retrieval - Week 4 Mixture Models - In Progress
