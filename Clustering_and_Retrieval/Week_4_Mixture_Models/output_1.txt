@@ -1,0 +1,103 @@
+Generate data points from a simple mixture of models:
+    Initial means: [[5, 0], [1, 1], [0, 5]]
+    Initial covariances: [[[0.5, 0.0], [0, 0.5]], [[0.92, 0.38], [0.38, 0.91]], [[0.5, 0.0], [0, 0.5]]]
+    Initial Weights: [0.25, 0.5, 0.25]
+
+Testing EM implementation. Should end at Iteration 22:
+Start running EM...
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 22
+
+Run EM algorithm on images:
+Start running EM...
+Iteration 0
+Iteration 5
+Iteration 10
+Iteration 15
+Iteration 20
+Iteration 25
+Iteration 30
+Iteration 35
+Iteration 40
+Iteration 45
+Iteration 50
+Iteration 55
+Iteration 60
+Iteration 65
+Iteration 70
+Iteration 75
+Iteration 80
+Iteration 85
+Iteration 90
+Iteration 95
+Iteration 100
+Iteration 105
+Iteration 110
+Iteration 115
+Iteration 118
+
+Cluster Assignments after 20 iterations (show top 20):
+assignments       probs
+          3   16.527047
+          3    8.083461
+          3    2.897435
+          3    0.005716
+          3   10.935375
+          3   25.261492
+          3    8.866743
+          3   10.239473
+          3   11.637674
+          2   68.528088
+          3    4.847930
+          3   23.370877
+          3   11.270909
+          3    1.285494
+          3    5.533116
+          1  127.358792
+          1   83.829358
+          3   22.351561
+          3    1.258014
+          3   21.559658
+
+Top 5 images with highest likelihood in each component:
+Component 0:
+	cloudy_sky/ANd9GcTGWO6pnQzfs0rffCsdiz7puprjB5hTm--LYws1ju7VuyBvyqDB_g.jpg
+	cloudy_sky/ANd9GcTqE0FQDwxjWwBI2zRAmjX-7JWiYXuAC06YhYMydN4dTBaDSPDx.jpg
+	cloudy_sky/ANd9GcQHd24C1XCc_Yk0g2Co75Il2vnze29GXLZEj8x9ut76iFEb3SvIpw.jpg
+	cloudy_sky/ANd9GcTtUbQ7FRfFRLZ6I9bQElBVx7MYfx6a3rPLcrUrGSPwzY40wP9tiA.jpg
+	cloudy_sky/ANd9GcRIbGO4ChyMvGCZQw3kGZAkycfwnCdO7r9zDvVx9g_iodFCoYBFdQ.jpg
+Component 1:
+	rivers/ANd9GcRDQ1sSlFRscSSD155-hJL3HqKSUG6UF_r_f09CNbU_plgL8LIXKQ.jpg
+	sunsets/ANd9GcRuM9jj0NZmoAvB5jMOtCg01f-Ng27IjKjCMX_1cqa9rKk4gqOt.jpg
+	trees_and_forest/ANd9GcSBAjw_xZrRu8mCsEPbHeb9yX81Tp29ouEvTzJv-_fYRw74yNlm.jpg
+	rivers/ANd9GcQltg7ksBMOTINiXB448-nTTSeBwZWzzQLUaI53Xtewd_WDqk0G.jpg
+	rivers/ANd9GcRNqNFV9XD8qS8ed-r0a61AUeDqZXSDL93sRqNzOWecjAVBI0czoA.jpg
+Component 2:
+	rivers/ANd9GcQ3whYfUGrHELoCiurYMmOps_dNp0p2mIMPcV7PVMJM2Vl9zkvodw.jpg
+	rivers/ANd9GcRetEFfEBk9l66ncFP5wRTocK7O6rgCahshBUrhd7qI_zLi_M-XBA.jpg
+	trees_and_forest/ANd9GcRHVHvmMxZT82zcHItbj0yjK--9JhmO_1_2FE6VV1QW4OMwSi1Q.jpg
+	trees_and_forest/ANd9GcSMxH6xPVAig4cMZvh0907Ot7TPsy_zY3J4wA6R4Y5uuV-Aokh_.jpg
+	rivers/ANd9GcThHh1geCkK2rkZcTehR877fth_ybnTB0nXf6EHPJNRA1AiswkS9A.jpg
+Component 3:
+	sunsets/ANd9GcRtzO5SYtgYtDyk8Uib5Bws0rR-3E3ZygnFCNgDKWBCNXCqkMrFcQ.jpg
+	sunsets/ANd9GcRuO3b4nk6LV75AvziyCBXB0kySrMvSc9Zf6XOk6IPkSI9POVoy.jpg
+	sunsets/ANd9GcQWa02JP_-LQNysjkhufzln-sL3QPj_ka__scvNWd0ibnt1EPSb6w.jpg
+	sunsets/ANd9GcQDNJchDVh5pfEMu0TT8RCOIJxvxbiVsVaQ_8btYQ37rwg1boJ-.jpg
+	sunsets/ANd9GcTBp6p8P5IIIkk6EMJtoWlZwAcbYQLL4KQUhI2ni33N4sc4JKkZEQ.jpg
+
+Quiz Questions:
+1. The weight that EM assigns to the first component after running the above code block is 0.300710.
+
+2. The mean of the second component in the first dimension is 4.942392.
+
+3. The variance of the third component in the first dimension is 0.671150.
+
+4. The likelihood of the first image in our data set is: 
+   [1.8535383053781916e-06, 7.4688795575348033e-11, 0.11077010067382137, 16.285493283653853]
+   The first image should be assigned to Cluster 3.
+
+5. Image 1, 2, 6, 7 are not in the top 5 images in the first cluster. (See assignment description on course website for images.)
