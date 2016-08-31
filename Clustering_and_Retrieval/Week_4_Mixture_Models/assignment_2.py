@@ -130,6 +130,25 @@ def run_em_for_high_dimension(data, means, covs, weights, cov_smoothing=1e-5,
     return out
 
 
+def visualize_EM_clusters(tf_idf, means, covs, map_index_to_word):
+    print('')
+    print('==========================================================')
+    num_clusters = len(means)
+    for c in range(num_clusters):
+        print('Cluster {0:d}: Largest mean parameters in cluster '.format(c))
+        print('{0: <15}{1: <12}{2: <12}'.format('Word', 'Mean', 'Variance'))
+
+        # The k'th element of sorted_word_ids should be the index of the word
+        # that has the k'th-largest value in the cluster mean. Hint: Use np.argsort().
+        sorted_word_ids = np.argsort(-means[c])
+
+        for i in sorted_word_ids[:5]:
+            print('{0: <15}{1:<10.2e}{2:10.2e}'
+                  .format(map_index_to_word_df[map_index_to_word_df['index'] == i]['word'].values[0],
+                          means[c][i], covs[c][i]))
+        print()
+
+
 if __name__ == '__main__':
     # Load data
     # Take only first 5000 documents
@@ -140,6 +159,10 @@ if __name__ == '__main__':
     tf_idf = normalize(tf_idf)
     with open("../Data/4_map_index_to_word.json") as json_data:
         map_index_to_word = json.load(json_data)
+    map_index_to_word_df = pd.DataFrame({
+        'index': pd.Series(list(map_index_to_word.values())),
+        'word': pd.Series(list(map_index_to_word.keys()))
+    })
 
     # Initializing mean parameters using k-means
     print("Initializing mean parameters using k-means...")
@@ -166,4 +189,23 @@ if __name__ == '__main__':
     for i in range(num_clusters):
         print("\tCluster {:d}: {:.4f}".format(i, weights[i]))
     print()
+
+    # Initializing covariances. Use 1e-8 as minimum covariances to prevent numerical instability.
+    print("Initializing covariances...\n")
+    covs = []
+    for i in range(num_clusters):
+        member_rows = tf_idf[cluster_assignment == i]
+        cov = (member_rows.power(2) - 2 * member_rows.dot(diag(means[i]))).sum(axis=0).A1 / member_rows.shape[0] \
+              + means[i] ** 2
+        cov[cov < 1e-8] = 1e-8
+        covs.append(cov)
+
+    # Running EM
+    print("Running EM...\nLog-likelihood tracing:")
+    out = run_em_for_high_dimension(tf_idf, means, covs, weights, cov_smoothing=1e-10)
+    print(out['loglik'])  # print history of log-likelihood over time
+
+    # Interpret clusters
+    visualize_EM_clusters(tf_idf, out['means'], out['covs'], map_index_to_word)
+
 
