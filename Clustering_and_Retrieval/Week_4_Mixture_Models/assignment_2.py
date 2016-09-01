@@ -130,7 +130,7 @@ def run_em_for_high_dimension(data, means, covs, weights, cov_smoothing=1e-5,
     return out
 
 
-def visualize_EM_clusters(tf_idf, means, covs, map_index_to_word):
+def visualize_em_clusters(tf_idf, means, covs, map_index_to_word_df):
     print('')
     print('==========================================================')
     num_clusters = len(means)
@@ -206,6 +206,48 @@ if __name__ == '__main__':
     print(out['loglik'])  # print history of log-likelihood over time
 
     # Interpret clusters
-    visualize_EM_clusters(tf_idf, out['means'], out['covs'], map_index_to_word)
+    visualize_em_clusters(tf_idf, out['means'], out['covs'], map_index_to_word_df)
 
+    # Comparing to random initialization
+    np.random.seed(5)
+    num_clusters = len(means)
+    num_docs, num_words = tf_idf.shape
 
+    random_means = []
+    random_covs = []
+    random_weights = []
+
+    for k in range(num_clusters):
+        # Create a numpy array of length num_words with random normally distributed values.
+        # Use the standard univariate normal distribution (mean 0, variance 1).
+        mean = np.random.normal(0, 1, num_words)
+
+        # Create a numpy array of length num_words with random values uniformly distributed between 1 and 5.
+        cov = np.random.uniform(1, 5, num_words)
+
+        # Initially give each cluster equal weight.
+        weight = 1.0 / num_clusters
+
+        random_means.append(mean)
+        random_covs.append(cov)
+        random_weights.append(weight)
+
+    print("Running EM with random initialization...\nLog-likelihood tracing:")
+    out_random_init = run_em_for_high_dimension(tf_idf, random_means, random_covs, random_weights, cov_smoothing=1e-5)
+    print(out_random_init['loglik'])  # print history of log-likelihood over time
+    # Interpret clusters
+    visualize_em_clusters(tf_idf, out_random_init['means'], out_random_init['covs'], map_index_to_word_df)
+
+    # QUIZ QUESTIONS:
+    print("Quiz Questions:")
+    # 1. What is the final log-likelihood that the algorithm with random initialization converges to?
+    print("1. With random initialization, the final log-likelihood converges to {:.6e}.\n"
+          .format(out_random_init['loglik'][-1]))
+    # 2. Is the final log-likelihood larger or smaller than the final log-likelihood we obtained above
+    #    when initializing EM with the results from running k-means?
+    print("2. With k-means initialization, the final log-likelihood converges to {:.6e}. "
+          "It is {:s} than the final log-likelihood with random initialization.\n"
+          .format(out['loglik'][-1], 'larger' if out['loglik'][-1] > out_random_init['loglik'][-1] else 'smaller'))
+    # 3. Are the clusters found with random initialization more or less interpretable
+    #    than the ones found after initializing using k-means?
+    print("3. Random initialization in this case produces a superior fit, which makes it less interpretable.")
